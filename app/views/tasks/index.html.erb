@@ -1,0 +1,19 @@
+<h1>Tasks</h1>
+<button class="btn btn-outline-info mb-3"><%= link_to "New task", new_task_path %></button>
+<% @tasks.each do |task| %>
+  <div class="flexbox mt-3">
+  <% if task.completed == false %>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="completed">
+  </div>
+  <% else %>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="completed" checked="checked">
+  </div>
+  <% end %>
+  <%= link_to task.title, task_path(task) %>
+  </div>
+  <%= link_to "delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>
