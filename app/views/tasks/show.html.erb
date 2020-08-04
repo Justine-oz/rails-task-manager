@@ -1,5 +1,15 @@
-<h1>About the task</h1>
+<h1><%=@task.title%></h1>
+<div class=box-container>
+  <p><%=@task.details%></p>
+</div>
+<br>
+<h4><%=@task.completed?%></h4>
 
-<p><%= @task.details %></p>
+<%= link_to "Edit", edit_task_path(@task) %>
 
-<p><%= link_to 'Back to Task List', tasks_path %></p>
+<!-- #link to go back -->
+<%= link_to "Back to list", tasks_path(@tasks) %>
+
+<!-- #link to delete -->
+<%= link_to "Delete", destroy_task_path(@task), method: :delete %>
+© 2020 GitHub, Inc.
